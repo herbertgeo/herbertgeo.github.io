@@ -1,0 +1,632 @@
+<!--
+Google IO 2012/2013 HTML5 Slide Template
+
+Authors: Eric Bidelman <ebidel@gmail.com>
+         Luke Mahé <lukem@google.com>
+
+URL: https://code.google.com/p/io-2012-slides
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <!--This one seems to work all the time, but really small on ipad-->
+  <!--<meta name="viewport" content="initial-scale=0.4">-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" media="all" href="theme/css/default.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
+</head>
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+
+  <slide class="logoslide nobackground">
+<aside class="note">
+	<section>
+  <p>Clicar <code><a href="?presentme=true" target="_self">?presentme=true</a></code> Para ativar o modo de apresentação</p>
+      <p>Alterar <code><a href="?presentme=false" target="_self">?presentme=false</a></code> Para desabilitar.</p>
+	</section>
+</aside>
+    <article class="flexbox vcenter">
+      <span><img src="http://www.tjdft.jus.br/logo.jpg"></span>
+    </article>
+  </slide>
+
+  <slide class="title-slide segue nobackground">
+    <aside class="gdbar"><img src="images/photo.jpg"></aside>
+    <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+    <hgroup class="auto-fadein">
+      <h1 data-config-title><!-- populated from slide_config.json --></h1>
+      <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+      <p data-config-presenter><!-- populated from slide_config.json --></p>
+    </hgroup>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2 >O que são mecanismos de busca elástica?</h2>
+    </hgroup>
+	<article>
+	<h1>
+	Mecanismos de buscas de alta performance, geralmente utilizando o Lucene Core como base para indexação e busca, além de fornecer APIs baseadas em REST, permitindo serem integrados a praticamente 	qualquer linguagem de programação.
+	</h1>
+<br/><br/><br/>
+	</article>
+
+	<article>
+   <article style="float:right;">
+      <img src="images/Search-Artifact.jpg" alt="Description" title="Description" >
+   </article>
+   <ul>
+    <li>Busca Textual;</li>
+    <li>Busca Geoespacial;</li>
+    <li>Destaque de Termos;</li>
+    <li>Busca facetada;</li>
+    <li>Integração com Banco de Dados;</li>
+    <li>Manipulação de rich documents como PDFs ou DOCs.</li>
+    </ul>
+	</article>
+  </slide>
+
+  <slide class="fill nobackground" style="background-image: url(images/BDDefinition2011BigBangTheory4-15.WM_.jpeg)">
+    <hgroup>
+      <h2 class="white">Por que nos pedem tanto?</h2>
+    </hgroup>
+
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Paradigma! Old School / New School</h2>
+    </hgroup>
+    <article>
+      <ul>
+         <li>Old School
+		   <article style="float: right;">
+		      <img src="images/ranzinza.jpg" alt="Description" title="Description" >
+		   </article>
+          <ul>
+            <li>Excesso de configurações</li>
+            <li>Pra mexer tem que ser ninja!</li>
+            <li>Quero controle de TUDO!?</li>
+          </ul>
+        </li>
+	<br/><br/><br/>
+         <li>New School
+		   <article style="float: right;">
+		      <img src="images/yeoman-003.29e3.png" alt="Description" title="Description"  style="width:200px;height:250px;">
+		   </article>
+          <ul>
+            <li>Tem que funcionar por padrão</li>
+            <li>Qualquer um pode mexer</li>
+            <li>Controle só no que realmente for necessário</li>
+          </ul>
+        </li>
+      </ul>
+    </article>
+  </slide>
+
+
+  <slide>
+ <aside class="note">
+    <section>
+      <ul>
+        <li>Desenvolvedores são egoístas.</li>
+        <li>Mas estão mudando.</li>
+      </ul>
+
+    </section>
+  </aside>
+    <hgroup>
+	   <article style="float: right;">
+	      <img src="images/solr.jpg" alt="Description" title="Description" style="width:70px;height:50px;">
+	   </article>
+      <h2>Exemplo:Old School</h2>
+    </hgroup>
+ <article class="smaller">
+      <pre class="prettyprint" data-lang="zookeeper">
+// Subindo o zookeeper
+sh zooKeeper.sh
+
+//Dizendo ao zookeeper onde ler os arquivos de configuração
+zkCli.sh -cmd upconfig -zkhost ip1:2181,ip2:2181,ip3:2181 -confdir ~/diretorio/procart/conf
+-confname procart
+
+//Dizendo ao zookeeper que a configuração anterior será para a coleção do procart
+zkCli.sh -cmd linkconfig -zkhost ip1:2181,ip2:2181,ip3:2181 -collection procart
+-confname procart -solrhome solr
+</pre>
+<pre class="prettyprint" data-lang="CONTAINER">
+//Subindo o solr no Jetty ou JBOSS
+java -Djetty.port=7574 -DzkRun -DnumShards=2 -DzkHost=ip1:2181,ip2:2181,ip3:2181 -jar start.jar
+</pre>
+<pre class="prettyprint" data-lang="solr">
+//criar arquivos das coleções
+vi schema.xml ~= 1000 linhas /	vi solrconfig.xml -= 1800 linhas
+
+//criando a coleção
+curl /admin/collections?action=CREATE&name=procart&numShards=3&replicationFactor=2
+&collection.configName=procart
+	</pre>
+    </article>
+  </slide>
+
+<slide class="segue dark quote nobackground">
+<aside class="note">
+   <section>
+     <ul>
+       <li>Desenvolvedores são clientes da infra</li>
+       <li>Infra é cliente dos produtos dos devs</li>
+     </ul>
+   </section>
+ </aside>
+    <aside class="gdbar right bottom"><img src="images/apple.png"></aside>
+
+    <article class="flexbox vleft auto-fadein">
+      <q>
+Um dia meu pai e eu construímos uma cerca e meu pai me disse que o lado interno deveria ser tão bonito quanto o de fora. Eu argumentei dizendo que ninguém veria dentro e ele disse: 'mas você sabe'.
+      </q>
+      <div class="author">
+        Steve Jobs
+      </div>
+    </article>
+  </slide>
+ <slide>
+    <hgroup>
+	   <article style="float: right;">
+	      <img src="images/elasticsearch.png" alt="Description" title="Description" style="width:150px;height:50px;">
+	   </article>
+      <h2>Exemplo:New School</h2>
+    </hgroup>
+    <article class="smaller">
+      <pre class="prettyprint" data-lang="elasticsearch">
+// Subindo o elasticsearch
+sh elasticsearch.sh
+      </pre>
+    </article>
+    <article class="build fade flexbox vcenter">
+       <img src="images/science.jpg" alt="Description" title="Description" >
+    </article>
+  </slide>
+<slide>
+   <hgroup>
+    <article style="float: right;">
+       <img src="images/elasticsearch.png" alt="Description" title="Description" style="width:150px;height:50px;">
+    </article>
+     <h2>Exemplo:New School</h2>
+   </hgroup>
+   <article class="smaller">
+     <pre class="prettyprint" data-lang="elasticsearch">
+// Subindo o elasticsearch
+sh elasticsearch.sh
+     </pre>
+   </article>
+   <article class=" ">
+     <iframe data-src="http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/setup-configuration.html#settings" style="width:100%;height:300px;"></iframe>
+   </article>
+ </slide>
+
+<slide>
+    <hgroup>
+      <h2>Entendendo os índices</h2>
+      <h3>Diferença entre elasticSearch e tabelas de RDBMS</h3>
+    </hgroup>
+    <article class="smaller">
+	BANCO == ÍNDICE
+<BR/>
+	TABELA == TIPO/DOCUMENTO
+<BR/><BR/>
+ 	select * from starh.servidor;
+      <table>
+        <tr>
+          <th>Id</th><th>Nome</th><th>Matricula</th><th>Localizacao</th><th>Ramal</th>
+        </tr>
+        <tr>
+          <td>318201</td><td>Herbert Trindade de Medeiros</td><td class="highlight">318201</td><td>SERGAD</td><td>4130</td>
+        </tr>
+      </table>
+    </article>
+<br/><br/>
+   <article class="smaller">
+     <pre class="prettyprint" data-lang="JSON">
+ //GET localhost:9200/starh/servidor
+    {
+      "Id": 318201,
+      "Nome": "Herbert Trindade",
+      "Matricula": "318201",
+      "Localizacao": "SERGAD",
+      "Ramal": "4130"
+    }
+     </pre>
+   </article>
+
+  </slide>
+
+
+ <slide>
+
+    <hgroup>
+      <h2>Comandos</h2>
+    </hgroup>
+
+    <article class="smaller">
+      <pre class="prettyprint" data-lang="CURL">
+      // Criando um índice no elasticsearch
+      curl -XPUT 'localhost:9200/meuindice?pretty'
+      </pre>
+    </article>
+    <article class="smaller build">
+    <pre class="prettyprint " data-lang="resposta">
+    {
+      "acknowledged" : true
+    }
+    </pre>
+    </article>
+
+  <article class="smaller build">
+  <pre class="prettyprint " data-lang="CURL">
+    //Listando os índices
+    curl 'localhost:9200/_cat/indices?v'
+  </pre>
+  </article>
+
+  <article class="smaller build">
+
+    <pre class="prettyprint " data-lang="resposta">
+    health index    pri rep docs.count docs.deleted store.size pri.store.size
+    yellow meuindice   5   1          0            0       495b           495b
+    </pre>
+  </article>
+
+  </slide>
+
+<slide>
+
+   <hgroup>
+     <h2>Inserindo Documentos</h2>
+   </hgroup>
+
+   <article class="smaller">
+     <pre class="prettyprint" data-lang="CURL">
+     // Inserindo um documento no elasticsearch
+     curl <b>-XPUT</b> 'localhost:9200/meuindice/<b>servidor</b>/<b>318201</b>?pretty' -d '
+    {
+      "nome": "Herbert Trindade"
+    }'
+     </pre>
+   </article>
+   <article class="smaller build">
+   <pre class="prettyprint " data-lang="resposta">
+{
+  "_index" : "meuindice",
+  "_type" : "<b>servidor</b>",
+  "_id" : "<b>318201</b>",
+  "_version" : 1,
+  "created" : true
+}
+   </pre>
+   </article>
+
+</slide>
+
+<slide>
+
+ <hgroup>
+   <h2>Consultando Documentos</h2>
+ </hgroup>
+<article class="">
+<pre class="prettyprint " data-lang="get">
+curl <b>-XGET</b> 'localhost:9200/meuindice/servidor/318201?pretty'
+{
+  "_index" : "meuindice",
+  "_type" : "servidor",
+  "_id" : "318201",
+  "_version" : 1,
+  "found" : true, "_source" : { "nome": "Herbert Trindade" }
+}
+</pre>
+</article>
+
+ </slide>
+
+<slide>
+
+ <hgroup>
+   <h2>Deletando todo o Índice</h2>
+ </hgroup>
+  <article class="">
+    <pre class="prettyprint " data-lang="delete">
+    curl <b>-XDELETE</b> 'localhost:9200/meuindice?pretty'
+    {
+      "acknowledged" : true
+    }
+    </pre>
+  </article>
+
+ </slide>
+
+<slide class="fill nobackground" style="background-image: url(images/shotting.jpg)">
+  <hgroup>
+    <h2 class="white">Processamento Batch</h2>
+  </hgroup>
+  <footer class="source white">http://www.expendablespremiere.com/</footer>
+</slide>
+
+<slide>
+ <hgroup>
+   <h2>Processamento Batch</h2>
+ </hgroup>
+  <article class="">
+    <pre class="prettyprint " data-lang="post">
+curl -XPOST 'localhost:9200/meuindice/servidor/_bulk?pretty' -d '
+{"<b>update</b>":{"_id":"318201"}}
+{"doc": { "name": "Herbert Humildão" } }
+{"<b>delete</b>":{"_id":"103222"}}
+'
+    </pre>
+  </article>
+
+<article class="build">
+  <pre class="prettyprint " data-lang="post">
+    // https://github.com/bly2k/files/blob/master/accounts.zip?raw=true
+curl -XPOST 'localhost:9200/bank/account/_bulk?pretty' --data-binary @accounts.json
+  </pre>
+</article>
+
+ </slide>
+
+<slide>
+
+
+ <hgroup>
+   <h2>Status do Cluster</h2>
+ </hgroup>
+  <article class="smaller">
+    <pre class="prettyprint " data-lang="saúde">
+curl 'localhost:9200/_cat/health?v'
+
+epoch      timestamp cluster       status node.total node.data shards pri relo init unassign
+1394735289 14:28:09  elasticsearch green           1         1      0   0    0    0        0
+    </pre>
+  </article>
+
+<article class="smaller build">
+  <pre class="prettyprint " data-lang="nós">
+curl 'localhost:9200/_cat/nodes?v'
+
+host         ip        heap.percent ram.percent load node.role master name
+mwubuntu1    127.0.1.1            8           4 0.00 d         *      New Goblin  </pre>
+</article>
+
+ </slide>
+
+<slide>
+  <hgroup>
+    <h2 >Só comandos?</h2>
+  </hgroup>
+
+  <article class="flexbox vcenter">
+    <img src="images/homer_simpson_the_simpsons_doh_facepalm_wallpaper-7945.jpg" alt="Description" title="Description" style="width:750px;height:450px;">
+    <footer class="source">http://hqwallbase.com/images/big/homer_simpson_the_simpsons_doh_facepalm_wallpaper-7945.jpg</footer>
+  </article>
+</slide>
+
+<slide>
+  <aside class="note">
+    <section>
+      <ul>
+        <li>Mostrar o site: <a href="http://www.elastichq.org/app/index.php">link</a>.</li>
+      </ul>
+      <p><b>Mostrar funcionando</b></p>
+    </section>
+  </aside>
+  <hgroup>
+    <h2 >Free</h2>
+  </hgroup>
+
+  <article class="flexbox vcenter">
+    <img src="images/elastichq2.png" alt="Description" title="Description" style="width:800px;height:400px;">
+    <footer class="source">elastichq.org</footer>
+  </article>
+</slide>
+
+<slide>
+  <aside class="note">
+    <section>
+      <ul>
+        <li>Mostrar o site: <a href="http://www.elasticsearch.org/overview/marvel/">link</a>.</li>
+      </ul>
+      <p><b>Mostrar funcionando</b></p>
+    </section>
+  </aside>
+  <hgroup>
+    <h2 >Suporte</h2>
+  </hgroup>
+
+  <article class="flexbox vcenter">
+    <img src="images/Marvel.png" alt="Description" title="Description" style="width:800px;height:400px;">
+    <footer class="source">elasticsearch.org</footer>
+  </article>
+</slide>
+
+
+<slide>
+  <hgroup>
+    <h2 >Logstash</h2>
+  </hgroup>
+    <article>
+      <ul>
+
+         <li>Processa dados de logs em 3 etapas
+		   <article style="float: right;">
+		      <img src="images/logstash.png" alt="Description" title="Description"  >
+		   </article>
+          <ul>
+            <li>Input: Lê um log do apache, jboss, etc;</li>
+            <li>Filter: Processa os dados, transformando/adicionando dados;</li>
+            <li>Output: Gera uma saída para diversos meios(redis, elasticsearch, nagios, zabbix, console, etc.)</li>
+          </ul>
+        </li>
+      </ul>
+    </article>
+
+</slide>
+
+<slide>
+  <hgroup>
+    <h2 >Arquitetura</h2>
+
+  </hgroup>
+
+
+       <article style="float: right;">
+          <img src="images/logstach-archi1.png" alt="Description" title="Description"  >
+       </article>
+
+
+</slide>
+
+
+<slide>
+  <hgroup>
+    <h2 >Exemplo de configuração</h2>
+
+  </hgroup>
+    <article>
+	 <pre class="prettyprint " data-lang=".conf">
+	<b>input {</b>
+	     path => "<b>/caminhodosarquivos/apache/access*.log</b>"
+	    type => "apache"
+        <b>}</b>
+	<b>filter {</b>
+	  if [type] == "apache" {
+	    grok {
+	      match => { "message" => "<b>%{COMBINEDAPACHELOG}</b>" }
+	    }
+	    date {
+	      match => [ "timestamp", "dd/MMM/yyyy:HH:mm:ss Z" ]
+	    }
+	  }
+        <b>}</b>
+	<b>output { </b>
+	    <b>elasticsearch</b> => localhost
+        <b>}</b>
+	</pre>
+    </article>
+
+</slide>
+
+<slide>
+  <hgroup>
+    <h2 >Subindo o logstash</h2>
+  </hgroup>
+    <article>
+	 <pre class="prettyprint " data-lang=".conf">
+	logstash -f default.conf
+	</pre>
+    </article>
+</slide>
+<slide>
+  <hgroup>
+    <h2>Descobrindo patterns</h2>
+</hgroup>
+ <article>
+   <pre class="prettyprint " data-lang="apache">
+
+127.0.0.1 - frank [10/Oct/2000:13:55:36 -0700] "GET /apache_pb.gif HTTP/1.0" 200 2326
+ </pre>
+<a href="http://grokdebug.herokuapp.com/">herokuapp.com</a>
+ </article>
+
+</slide>
+
+
+<slide>
+  <aside class="note">
+    <section>
+      <ul>
+        <li>Mostrar o site: <a href="http://www.elasticsearch.com/products/kibana/">link</a>.</li>
+      </ul>
+      <p><b>Mostrar funcionando</b></p>
+    </section>
+  </aside>
+  <hgroup>
+    <h2 >kibana - Por quê ver um log se posso ver todo o sistema?</h2>
+    <h1 style="float:right">tail -f não me dá uma visão geral</h1>
+  </hgroup>
+<br/><br/>
+    <article>
+      <ul>
+
+         <li>Efetua análise dos dados indexados no ElasticSearch por meio do Logstash
+          <ul>
+		      <img src="images/kibana1.png" alt="Description" title="Description"  style="width:500px;height:300px;float: right;">
+            <li>Comparação baseada em tempo;</li>
+            <li>Faz com que seus dados façam sentido;</li>
+            <li>Sintaxe de busca poderosa;</li>
+            <li>Fácil instalação;</li>
+            <li><b>Foco na serviço ofertado e não em componentes de infra.</b></li>
+          </ul>
+        </li>
+      </ul>
+    </article>
+
+</slide>
+
+
+
+  <slide>
+    <hgroup>
+      <h2>Case Procart</h2>
+    </hgroup>
+   <article class=" ">
+     <iframe data-src="http://nexus.tjdft.jus.br/kibana/#/dashboard/elasticsearch/Emitidas" style="height:510px;"></iframe>
+   </article>
+  </slide>
+
+
+  <slide class="thank-you-slide segue nobackground">
+    <aside class="gdbar right"><img src="images/photo.jpg"></aside>
+    <article class="flexbox vleft auto-fadein">
+      <h2>&lt;Obrigado!&gt;</h2>
+      <p>Informações de contato.</p>
+    </article>
+    <p class="auto-fadein" data-config-contact>
+      <!-- populated from slide_config.json -->
+    </p>
+  </slide>
+
+  <slide class="logoslide dark nobackground">
+    <article class="flexbox vcenter">
+      <span><img src="http://intranet2.tjdft.jus.br/logo.jpg"></span>
+    </article>
+  </slide>
+
+  <slide class="backdrop"></slide>
+
+</slides>
+
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-XXXXXXXX-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+<!--[if IE]>
+  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+</body>
+</html>
