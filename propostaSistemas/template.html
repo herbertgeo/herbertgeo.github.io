@@ -1,0 +1,358 @@
+<!--
+Google IO 2012/2013 HTML5 Slide Template
+
+Authors: Eric Bidelman <ebidel@gmail.com>
+         Luke Mahé <lukem@google.com>
+
+URL: https://code.google.com/p/io-2012-slides
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <!--This one seems to work all the time, but really small on ipad-->
+  <!--<meta name="viewport" content="initial-scale=0.4">-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" media="all" href="theme/css/default.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+  <script src="http://172.17.73.135:8000/components/platform/platform.js"></script>  
+<!--   <link rel="import" href="http://172.17.73.135:8000/components/tjdft-botao-menu-sistemas/tjdft-botao-menu-sistemas.html"> 
+    <link rel="import" href="http://172.17.73.135:8000/components/tjdft-menu/tjdft-menu.html">  -->
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
+</head>
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+
+  <slide class="logoslide nobackground">
+<aside class="note">
+	<section>
+  <p>Clicar <code><a href="?presentme=true" target="_self">?presentme=true</a></code> Para ativar o modo de apresentação</p>
+      <p>Alterar <code><a href="?presentme=false" target="_self">?presentme=false</a></code> Para desabilitar.</p>
+	</section>
+</aside>
+    <article class="flexbox vcenter">
+      <span><img src="http://www.tjdft.jus.br/logo.jpg"></span>
+    </article>
+  </slide>
+
+  <slide class="title-slide segue nobackground">
+    <aside class="gdbar"><img src="images/photo.jpg"></aside>
+    <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+    <hgroup class="auto-fadein">
+      <h1 data-config-title><!-- populated from slide_config.json --></h1>
+      <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+      <p data-config-presenter><!-- populated from slide_config.json --></p>
+    </hgroup>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2 >Agenda</h2>
+    </hgroup>
+
+	<article>
+
+   <ul>
+    <li>Modelo atual;</li>
+    <li>Problemas da atual abordagem;</li>
+    <li>Nova proposta;</li>
+    <li>Integração horizontal;</li>
+    <li>Webcomponents.</li>
+
+    </ul>
+	</article>
+  </slide>
+
+  <slide class="fill nobackground" style="background-image: url(images/mix11appwall.jpg)">
+    <hgroup>
+      <h2 class="green">Modelo atual</h2>
+    </hgroup>
+  <article>
+          <ul class="black">
+            <li>Foco em sistemas, ao invés de pessoas;</li>
+            <li>Arquitetura não flexível e <br/>não intercambiável;</li>
+            <li>Longe do Browser, gerando sobrecarga <br/>e consumindo muitos recursos</li>
+          </ul>
+<!--http://www.istartedsomething.com/wp-content/uploads/2011/04/mix11appwall.jpg-->
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Problemas da atual abordagem</h2>
+    </hgroup>
+    <article>
+      
+		   <article style="float: right;">
+		      <img src="images/difficult.jpg" alt="Description" title="Description"  style="width:500px;height:500px;">
+          <!-- http://excelle.monster.com/nfs/excelle/attachment_images/0000/3579/difficult.jpg -->
+		   </article>
+          <ul>
+                <li>não se prioriza a experiência do usuário(fazer certo <> fazer melhor);</li>
+                <li>arquitetura presa a paradigmas estáticos, alto acoplamento e deploys pesados e demorados;</li>
+                <li>escreve-se código java > converte para html+js > processa no servidor(mem+cpu);</li>
+                <li>programador distante da "fonte".</li>
+          </ul>
+
+    </article>
+  </slide>
+
+<slide>
+    <hgroup>
+      <h2>Nova proposta</h2>
+    </hgroup>
+    <article>
+      
+       <article style="float: right;">
+          <img src="images/user-experience.jpg" alt="Description" title="Description"  style="width:500px;height:500px;">
+       </article>
+
+          <ul>
+            <article class="build"> 
+            <li>Foco no usuário 
+              <ul>
+                <li>sistemas transparentes;</li>
+                <li>tarefas são mais importantes;</li>
+                <li>telas e ações simples(diminuir clicks e etc.).</li>
+              </ul>
+            </li>
+          </article>
+          <article class="build"> 
+            <li>Arquitetura flexível, tudo é serviço
+              <ul>
+                <li>dados;</li>
+                <li>componentes visuais e não visuais.</li>
+              </ul>
+            </li>
+          </article>
+          <article class="build"> 
+            <li>Webcomponents são intercambiáveis</li>
+          </article> 
+          </ul>
+ <!-- http://blogs-images.forbes.com/steveolenski/files/2014/11/user-experience.jpg -->
+    </article>
+  </slide>
+<slide>
+    <hgroup>
+      <h2>Como fazer (Simplificando os menus)</h2>
+    </hgroup>
+       <article class="flexbox vcenter auto-fadein">
+          <img src="images/menu-sistjweb.png" alt="Description" title="Description"  style="align:center;width:700px;height:500px;">
+       </article>
+  </slide>
+<slide>
+    <hgroup>
+      <h2>Como fazer (Menu universal)</h2>
+    </hgroup>
+       <article style="align: center;">
+        <iframe src="http://172.17.73.135:8000/components/tjdft-botao-menu-sistemas/" style="height:500px;"></iframe>
+       </article>
+  </slide>
+<slide>
+    <hgroup>
+      <h2>Como fazer (Barra universal)</h2>
+    </hgroup>
+       <article style="align: center;">
+        <iframe src="http://172.17.73.135:8000/components/tjdft-menu/" style="height:500px;"></iframe>
+       </article>
+  </slide>
+  <slide>
+    <hgroup>
+      <h2>Como fazer (Barra universal - Intranet)</h2>
+    </hgroup>
+       <article style="align: center;">
+        <iframe src="http://172.17.73.135:8000/components/tjdft-menu/intranet.html" style="height:500px;"></iframe>
+       </article>
+  </slide>
+  <slide>
+    <hgroup>
+      <h2>Como fazer (Barra universal - Certidão)</h2>
+    </hgroup>
+       <article style="align: center;">
+        <iframe src="http://172.17.73.135:8000/components/tjdft-menu/certidao.html" style="height:500px;"></iframe>
+       </article>
+  </slide>
+  <slide>
+    <hgroup>
+      <h2>Como fazer (Menu universal - Cartões de Notificação)</h2>
+    </hgroup>
+       <article class="flexbox vcenter auto-fadein">
+          <img src="images/Cartao.png" alt="Description" title="Description"  style="align:center">
+       </article>     
+  </slide>
+    <slide>
+    <hgroup>
+      <h2>Como fazer (Notificações - Ícone categorizador)</h2>
+    </hgroup>
+       <article class="flexbox vcenter auto-fadein">
+          <img src="images/CartaoIdentificadorDaNotificacao.png" alt="Description" title="Description"  style="align:center;">
+       </article>    
+  </slide>
+  <slide>
+    <hgroup>
+      <h2>Como fazer (Notificações - Assunto)</h2>
+    </hgroup>
+       <article class="flexbox vcenter auto-fadein">
+          <img src="images/CartaoAssuntoDaNotificacao.png" alt="Description" title="Description"  style="align:center;">
+       </article>    
+  </slide>
+  <slide>
+    <hgroup>
+      <h2>Como fazer (Notificações - Detalhe Assunto)</h2>
+    </hgroup>
+       <article class="flexbox vcenter auto-fadein">
+          <img src="images/CartaoDetalheDaNotificacao.png" alt="Description" title="Description"  style="align:center;">
+       </article>    
+  </slide> 
+  <slide>
+    <hgroup>
+      <h2>Como fazer (Notificações - Ações)</h2>
+    </hgroup>
+       <article class="flexbox vcenter auto-fadein">
+          <img src="images/CartaoBotoesDeAcaoDaNotificacao.png" alt="Description" title="Description"  style="align:center;">
+       </article>    
+  </slide>
+  <slide>
+    <aside class="note">
+  <section>
+  <p>Comunicação por cores, texto e aspecto</p>
+  </section>
+</aside>
+    <hgroup>
+      <h2>Como fazer (Notificações - Cores)</h2>
+    </hgroup>
+    <article style="float:left">
+     <ul>
+          <li class="red3">Atenção imediata</li>
+          <li class="yellow">Alerta</li>
+           <li class="blue3">Pessoal</li>
+          <li class="green2">Finanças</li>
+        </ul>
+      </article>
+      <br>
+       <article class="flexbox fauto-fadein">
+          <img src="images/CartaoCoresDaNotificacao.png" alt="Description" title="Description"  style="align:center;">
+       </article>    
+  </slide>
+  <slide>
+    <hgroup>
+      <h2>Integração horizontal</h2>
+    </hgroup>
+    <article>
+      
+       <article style="float: right;">
+          <img src="images/user-experience.jpg" alt="Description" title="Description"  style="width:500px;height:500px;">
+       </article>
+          <ul>
+                <li>serviços, dados e objetos na mesma camada;</li>
+                <li>abstração de bibliotecas e versões;</li>
+                <li>deploys automágicos.</li>
+          </ul>
+
+ <!-- http://blogs-images.forbes.com/steveolenski/files/2014/11/user-experience.jpg -->
+    </article>
+  </slide>
+   <slide>
+    
+    <hgroup>
+      <h2>Webcomponents</h2>
+    </hgroup>
+    <article>
+      
+       <article style="float: right;">
+          <img src="http://frontend-labs.com/wp-content/uploads/2014/07/WebComponentsPolymer.png" alt="Description" title="Description"  style="width:500px;height:400px;">
+       </article>
+          <ul>
+                <li>Custom Elements;</li>
+                <li>HTML Templates;
+                <ul>
+                  <li>Interte até ser ativado</li>
+                  <li>Conteúdos não sofrerão carga(imagens,vídeos,áudio)</li>
+                  <li>Conteúdo não considerado como sendo do documento</li>
+                  <li>Podem ser inseridos em qualquer lugar</li>
+                </ul>
+
+                </li>
+                <li>Shadow DOM(árvores combinadas);</li>
+                <li>HTML Imports</li>
+          </ul>
+
+ <!-- http://blogs-images.forbes.com/steveolenski/files/2014/11/user-experience.jpg -->
+    </article>
+  </slide>
+   <slide>
+    
+    <hgroup>
+      <h2>Webcomponents - exemplo</h2>
+    </hgroup>
+    <article>
+      
+       <pre class="prettyprint " data-lang="html">
+      &lt;!DOCTYPE html>
+      &lt;html>
+      &lt;head>
+        &lt;title>Minha página principal&lt;/title>
+        &lt;script src="../components/platform/platform.js"></script>   
+        <b>&lt;!-- importando o componente web -->
+        &lt;link rel="import" href="../components/tjdft-botao-menu-sistemas.html"></b>
+      &lt;/head>
+      &lt;body>
+        <b>&lt;!-- usando o componente web -->
+        &lt;tjdft-botao-menu-sistemas>&lt;/tjdft-botao-menu-sistemas></b>
+      &lt;body>
+      &lt;/html>
+      </pre>
+
+    </article>
+  <section>
+  <p>Clicar <code><a href="http://172.17.73.135:8000/components/tjdft-menu/intranet.html" target="_new">ShowCase</a></code></p>
+  </section>
+
+  </slide>
+
+
+  <slide class="thank-you-slide segue nobackground">
+    <aside class="gdbar right"><img src="images/photo.jpg"></aside>
+    <article class="flexbox vleft auto-fadein">
+      <h2>&lt;Obrigado!&gt;</h2>
+      <p>Informações de contato.</p>
+    </article>
+    <p class="auto-fadein" data-config-contact>
+      <!-- populated from slide_config.json -->
+    </p>
+  </slide>
+
+  <slide class="logoslide dark nobackground">
+    <article class="flexbox vcenter">
+      <span><img src="http://intranet2.tjdft.jus.br/logo.jpg"></span>
+    </article>
+  </slide>
+
+  <slide class="backdrop"></slide>
+
+</slides>
+
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-XXXXXXXX-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+<!--[if IE]>
+  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+</body>
+</html>
