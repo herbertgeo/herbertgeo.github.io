@@ -1,0 +1,80 @@
+#base {
+    background-color  : #000;
+    border            : 1px red;
+    background-image  : url(https://docs.google.com/drawings/d/1QZe97NfpSH50WQPyBjNegpdJPT9LgoNOzXDgU3XKMg8/export/png?id=1QZe97NfpSH50WQPyBjNegpdJPT9LgoNOzXDgU3XKMg8&pageid=p);
+    background-repeat : no-repeat;
+    background-size   : 100% auto;
+    background-size   : contain;
+    width             : 960px;
+    height            : 720px;
+  //  border-radius     : 50%;
+}
+#filtro {
+    background-color  : #000;
+    border            : 1px red;
+    background-repeat : no-repeat;
+    background-position : 50% 50%;
+    background-size   : 100% auto;
+    background-size   : contain;
+    width             : 960px;
+    height            : 720px;
+    opacity           : 0.2;
+}
+#bola {
+    background-color  : #fff;
+    border            : 1px solid gray;
+    background-position : 50% 50%;
+    background-size   : 100% auto;
+    background-size   : contain;
+    width             : 60px;
+    height            :60px;
+    border-radius     : 50%;
+    opacity           : 0.9;
+     position: fixed;
+   top: 145px;
+    left: 343px; 
+}
+
+#retangulo {
+    background-color  : #fff;
+    border            : 1px solid gray;
+    background-position : 50% 50%;
+    background-size   : 100% auto;
+    background-size   : contain;
+    width             : 210px;
+    height            :60px;
+    opacity           : 0.9;
+     position: fixed;
+   top: 145px;
+    left: 400px; 
+        border-radius     : 5%;
+}
+#subtitulo {
+    background-color  : #fff;
+    border            : 1px solid gray;
+    background-position : 50% 50%;
+    background-size   : 100% auto;
+    background-size   : contain;
+    width             : 280px;
+    height            :25px;
+    opacity           : 0.9;
+     position: fixed;
+   top: 200px;
+    left: 345px; 
+    border-radius     : 5%;
+}
+
+#acao {
+    background-color  : #fff;
+    border            : 1px solid gray;
+    background-position : 50% 50%;
+    background-size   : 100% auto;
+    background-size   : contain;
+    width             : 280px;
+    height            :25px;
+    opacity           : 0.9;
+     position: fixed;
+   top: 235px;
+    left: 345px; 
+    border-radius     : 5%;
+}
